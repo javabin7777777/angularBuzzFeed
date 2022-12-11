@@ -1,0 +1,21 @@
+<div class="quizz__container">   
+
+   <div class="quizz_logo">
+      <img src="assets/imgs/logo.png" alt="" srcset="">
+      <h3>{{title}}</h3>
+   </div>
+   <div *ngIf=!finished class="quizz_questions">
+<!-- pega o valor da propriedade question do array de objetos contido
+    arquivo quizz_questions.json -->
+     <h3>{{questionSelected.question}}</h3>
+   </div>
+   <div *ngIf=!finished class="quizz_options">
+      <button *ngFor="let op of questionSelected.options"  
+       (click)="playerChoose(op.alias)"
+       class="btn-option">{{op.name}}}</button>
+   </div>
+   <div *ngIf=finished class="quizz_results">
+      <h1>O resultado é:</h1>
+      <p>{{answerSelected}}</p>
+   </div>
+</div>
